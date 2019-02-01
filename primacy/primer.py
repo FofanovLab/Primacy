@@ -170,8 +170,8 @@ def get_primer_stats(df, tm_params):
 
 
 def specificity(primer_df, background_paths, outpath, threads):
-    primer_df['specificity'] = primer_df.apply(
-        lambda _: {'mm0': 0, 'mm1': 0, 'mm2': 0, 'mm3': 0})
+    primer_df['specificity'] = [
+        {'mm0': 0, 'mm1': 0, 'mm2': 0, 'mm3': 0} for _ in primer_df.index]
     return primer_df
 
 
