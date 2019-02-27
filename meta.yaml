@@ -29,6 +29,10 @@ requirements:
 test:
   imports:
     - primacy
+  commands:
+    - primacy --help
+    - primacy primer-collection --help
+    - primacy primer-score --help
   
 
 about:

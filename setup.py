@@ -16,8 +16,8 @@ setup(
     packages=['primacy'],
     entry_points={
         'console_scripts': [
-            'primacy_cli'=primacy.main.main,
-            'primacy'=primacy.main.gui
+            'primacy_cli=primacy.main:main',
+            'primacy=primacy.main:gui'
         ]
     },
     install_requires=requirements,
