@@ -33,7 +33,8 @@ def primer_collection(config, threads, outpath=os.getcwd()):
         for seq_id, seq_info in config_obj['sequences'].items()}
     # Run primer collection and return dictionary of output files
     output = get_primer_collection(
-        seq_obj_dict, tm_params, background_paths, outpath, threads)
+        seq_obj_dict, tm_params,
+        background_paths, os.path.abspath(outpath), threads)
     # modify config json file with path to primer_collection for each sequence
     for seq_id, outpath in output.items():
         config_obj['sequences'][seq_id]['outfile'] = outpath
