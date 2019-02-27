@@ -1,0 +1,414 @@
+{
+    "test1": {
+        "forward": {
+            "test1_100_18_F": {
+                "seq_id": "test1",
+                "start": 100,
+                "length": 18,
+                "flank": 0,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 66.66666666666667,
+                "gc_clamp": 3,
+                "tm": 55.98553731388688,
+                "homopolymers": {
+                    "percent": 22.22222222222222,
+                    "run": 4
+                },
+                "dimerization": {
+                    "percent": 11.11111111111111,
+                    "run": 8,
+                    "median": 8.0,
+                    "hairpin": 8
+                },
+                "seq": "AGCGGGGAGGAAGGGAGT",
+                "rank": 0.854320987654321,
+                "score": 0.19529002211418633
+            },
+            "test1_99_18_F": {
+                "seq_id": "test1",
+                "start": 99,
+                "length": 18,
+                "flank": 0,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 66.66666666666667,
+                "gc_clamp": 2,
+                "tm": 54.15317306399231,
+                "homopolymers": {
+                    "percent": 22.22222222222222,
+                    "run": 4
+                },
+                "dimerization": {
+                    "percent": 13.88888888888889,
+                    "run": 8,
+                    "median": 5.0,
+                    "hairpin": 10
+                },
+                "seq": "GCGGGGAGGAAGGGAGTA",
+                "rank": 0.7802469135802469,
+                "score": 0.18213514964448718
+            },
+            "test1_98_18_F": {
+                "seq_id": "test1",
+                "start": 98,
+                "length": 18,
+                "flank": 0,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 61.111111111111114,
+                "gc_clamp": 1,
+                "tm": 51.32969002315667,
+                "homopolymers": {
+                    "percent": 22.22222222222222,
+                    "run": 4
+                },
+                "dimerization": {
+                    "percent": 11.11111111111111,
+                    "run": 4,
+                    "median": 4.0,
+                    "hairpin": 8
+                },
+                "seq": "CGGGGAGGAAGGGAGTAA",
+                "rank": 0.7234567901234568,
+                "score": 0.1761004875256728
+            },
+            "test1_97_18_F": {
+                "seq_id": "test1",
+                "start": 97,
+                "length": 18,
+                "flank": 0,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 55.55555555555556,
+                "gc_clamp": 1,
+                "tm": 48.719852163469966,
+                "homopolymers": {
+                    "percent": 22.22222222222222,
+                    "run": 4
+                },
+                "dimerization": {
+                    "percent": 5.555555555555555,
+                    "run": 2,
+                    "median": 2.0,
+                    "hairpin": 4
+                },
+                "seq": "GGGGAGGAAGGGAGTAAA",
+                "rank": 0.6222222222222222,
+                "score": 0.1652137842770187
+            },
+            "test1_96_18_F": {
+                "seq_id": "test1",
+                "start": 96,
+                "length": 18,
+                "flank": 0,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 55.55555555555556,
+                "gc_clamp": 1,
+                "tm": 47.35382916451488,
+                "homopolymers": {
+                    "percent": 0.0,
+                    "run": 0
+                },
+                "dimerization": {
+                    "percent": 5.555555555555555,
+                    "run": 2,
+                    "median": 2.0,
+                    "hairpin": 4
+                },
+                "seq": "GGGAGGAAGGGAGTAAAG",
+                "rank": 0.007407407407407408,
+                "score": 0.0802102083452877
+            },
+            "test1_95_18_F": {
+                "seq_id": "test1",
+                "start": 95,
+                "length": 18,
+                "flank": 0,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 50.0,
+                "gc_clamp": 1,
+                "tm": 46.41797482640379,
+                "homopolymers": {
+                    "percent": 0.0,
+                    "run": 0
+                },
+                "dimerization": {
+                    "percent": 8.333333333333332,
+                    "run": 2,
+                    "median": 2.0,
+                    "hairpin": 6
+                },
+                "seq": "GGAGGAAGGGAGTAAAGT",
+                "rank": 0.03950617283950617,
+                "score": 0.09281680651997891
+            },
+            "test1_94_18_F": {
+                "seq_id": "test1",
+                "start": 94,
+                "length": 18,
+                "flank": 0,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 44.44444444444444,
+                "gc_clamp": 1,
+                "tm": 44.424166980418704,
+                "homopolymers": {
+                    "percent": 0.0,
+                    "run": 0
+                },
+                "dimerization": {
+                    "percent": 8.333333333333332,
+                    "run": 4,
+                    "median": 4.0,
+                    "hairpin": 6
+                },
+                "seq": "GAGGAAGGGAGTAAAGTT",
+                "rank": 0.1506172839506173,
+                "score": 0.11014351677545162
+            },
+            "test1_93_18_F": {
+                "seq_id": "test1",
+                "start": 93,
+                "length": 18,
+                "flank": 0,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 38.888888888888886,
+                "gc_clamp": 1,
+                "tm": 42.665233072539195,
+                "homopolymers": {
+                    "percent": 0.0,
+                    "run": 0
+                },
+                "dimerization": {
+                    "percent": 11.11111111111111,
+                    "run": 4,
+                    "median": 4.0,
+                    "hairpin": 8
+                },
+                "seq": "AGGAAGGGAGTAAAGTTA",
+                "rank": 0.3432098765432099,
+                "score": 0.1316437668809551
+            },
+            "test1_92_18_F": {
+                "seq_id": "test1",
+                "start": 92,
+                "length": 18,
+                "flank": 0,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 38.888888888888886,
+                "gc_clamp": 1,
+                "tm": 42.049381231842744,
+                "homopolymers": {
+                    "percent": 0.0,
+                    "run": 0
+                },
+                "dimerization": {
+                    "percent": 13.88888888888889,
+                    "run": 4,
+                    "median": 4.0,
+                    "hairpin": 10
+                },
+                "seq": "GGAAGGGAGTAAAGTTAA",
+                "rank": 0.42962962962962964,
+                "score": 0.1424725734033428
+            }
+        },
+        "reverse": {
+            "test1_434_18_R": {
+                "seq_id": "test1",
+                "start": 434,
+                "length": 18,
+                "flank": 1,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 33.333333333333336,
+                "gc_clamp": 1,
+                "tm": 41.7091987787432,
+                "homopolymers": {
+                    "percent": 0.0,
+                    "run": 0
+                },
+                "dimerization": {
+                    "percent": 19.444444444444446,
+                    "run": 6,
+                    "median": 5.0,
+                    "hairpin": 14
+                },
+                "seq": "ACATTCTCATCTCTGAAA",
+                "rank": 0.6226506024096385,
+                "score": 0.18599056234031558
+            },
+            "test1_433_18_R": {
+                "seq_id": "test1",
+                "start": 433,
+                "length": 18,
+                "flank": 1,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 33.333333333333336,
+                "gc_clamp": 1,
+                "tm": 40.74621543243023,
+                "homopolymers": {
+                    "percent": 22.22222222222222,
+                    "run": 4
+                },
+                "dimerization": {
+                    "percent": 16.666666666666664,
+                    "run": 6,
+                    "median": 4.0,
+                    "hairpin": 12
+                },
+                "seq": "CATTCTCATCTCTGAAAA",
+                "rank": 0.8665060240963856,
+                "score": 0.2754839883383505
+            },
+            "test1_432_18_R": {
+                "seq_id": "test1",
+                "start": 432,
+                "length": 18,
+                "flank": 1,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 33.333333333333336,
+                "gc_clamp": 1,
+                "tm": 40.73249510769756,
+                "homopolymers": {
+                    "percent": 22.22222222222222,
+                    "run": 4
+                },
+                "dimerization": {
+                    "percent": 16.666666666666664,
+                    "run": 6,
+                    "median": 4.0,
+                    "hairpin": 12
+                },
+                "seq": "ATTCTCATCTCTGAAAAC",
+                "rank": 0.8674698795180723,
+                "score": 0.2755602123646432
+            },
+            "test1_431_18_R": {
+                "seq_id": "test1",
+                "start": 431,
+                "length": 18,
+                "flank": 1,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 33.333333333333336,
+                "gc_clamp": 1,
+                "tm": 41.63399950873293,
+                "homopolymers": {
+                    "percent": 22.22222222222222,
+                    "run": 4
+                },
+                "dimerization": {
+                    "percent": 19.444444444444446,
+                    "run": 8,
+                    "median": 4.0,
+                    "hairpin": 14
+                },
+                "seq": "TTCTCATCTCTGAAAACT",
+                "rank": 0.8746987951807229,
+                "score": 0.28212592865518743
+            },
+            "test1_430_18_R": {
+                "seq_id": "test1",
+                "start": 430,
+                "length": 18,
+                "flank": 1,
+                "specificity": {
+                    "mm0": 0,
+                    "mm1": 0,
+                    "mm2": 0,
+                    "mm3": 0
+                },
+                "degenerate": 1,
+                "gc": 33.333333333333336,
+                "gc_clamp": 1,
+                "tm": 41.63399950873287,
+                "homopolymers": {
+                    "percent": 22.22222222222222,
+                    "run": 4
+                },
+                "dimerization": {
+                    "percent": 19.444444444444446,
+                    "run": 10,
+                    "median": 4.0,
+                    "hairpin": 14
+                },
+                "seq": "TCTCATCTCTGAAAACTT",
+                "rank": 0.8828915662650603,
+                "score": 0.2862925953218544
+            }
+        }
+    }
+}
