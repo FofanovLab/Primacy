@@ -133,6 +133,8 @@ def dimerization_worker(primer_1, primer_2):
         complementary, key=lambda x: x > 0)]
     max_run = sum(max(complementary_runs, key=sum))
     run_lens = [sum(c) for c in complementary_runs if sum(c) > 0]
+    if run_lens:
+        run_lens.append(0)
     median = np.median(run_lens) if run_lens else 0
     return (total, max_run, median, complementary)
 
