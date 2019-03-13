@@ -7,7 +7,7 @@ from primacy.sequence import Sequence
 from primacy.collection import get_primer_collection
 from primacy.primer_score import get_primer_scores_mp
 from primacy.utils import read_config, get_json_obj, write_json_obj
-from primacy.score_existing_primers import score_existing_primers
+# from primacy.score_existing_primers import score_existing_primers
 
 @click.group()
 def cli():
