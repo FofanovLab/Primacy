@@ -1,6 +1,6 @@
 from Bio.Seq import Seq
 from Bio.Alphabet.IUPAC import IUPACAmbiguousDNA
-from primer import ambiguous_count
+from primacy.primer import ambiguous_count
 
 class Sequence(object):
 
@@ -111,7 +111,7 @@ class Sequence(object):
             for i in range(0, len(seq) - primer_size + 1):
                 primer_seq = seq[i: i + primer_size]
                 if "X" not in primer_seq and ambiguous_count(
-                    primer_seq) < 500:
+                    primer_seq) < 1024:
                     primers.append(
                         [self.seq_id,
                         len(seq) - i,
