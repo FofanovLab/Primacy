@@ -4,7 +4,8 @@ import pandas as pd
 import logging
 from multiprocessing import Pool
 from functools import partial
-from primer import get_primer_stats, specificity
+from primacy.primer import get_primer_stats, specificity
+from primacy.utils import write_json_obj
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -15,6 +16,7 @@ def remove_duplicate_primers(df):
     Remove duplicate primers so that they do not 
     interfere with other amplicons
     """
+    # TODO: This does not work for ambiguous primers
     before = df.shape[0]
     df.drop_duplicates(subset="sequence", inplace=True)
     after = df.shape[0]
@@ -51,6 +53,7 @@ def get_primer_data(seq_id_df, tm_params):
         flank_df.drop(["primer_id"], inplace=True, axis=1)
         primer_dict[flank_key] = flank_df.to_dict(orient='index')
     return {seq_id: primer_dict}
+        
 
 def get_primer_collection(
         seq_obj_dict, tm_params, background_paths, outpath, threads):
@@ -73,13 +76,19 @@ def get_primer_collection(
         all_primers, background_paths, outpath, threads)
     p = Pool(threads)
     func = partial(get_primer_data, tm_params=tm_params)
+    outfiles = {}
     for primer_dic in p.imap(
         func, all_primers.groupby(["seq_id"], sort=False)):
+        seq_id = list(primer_dic.keys())[0]
         file_name = os.path.join(
                 outpath,
-                "seq_{}.json".format(list(primer_dic.keys())[0]))
-        with open(file_name, 'w') as outfile:
-            json.dump(primer_dic, outfile)
+                "seq_{}.json".format(seq_id))
+        outfiles[seq_id] = file_name
+        write_json_obj(primer_dic, file_name)
+
+    p.close()
+    p.join()
+    return outfiles
         
 
 
