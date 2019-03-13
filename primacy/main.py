@@ -2,15 +2,44 @@ import click
 import logging
 import json
 import os
-from sequence import Sequence
-from collection import get_primer_collection
-from primer_score import get_primer_scores_mp
-from utils import read_config, get_json_obj, write_json_obj
 
+from primacy.sequence import Sequence
+from primacy.collection import get_primer_collection
+from primacy.primer_score import get_primer_scores_mp
+from primacy.utils import read_config, get_json_obj, write_json_obj
+from primacy.score_existing_primers import score_existing_primers
 
 @click.group()
-def main():
+def cli():
     pass
+
+# @cli.command()
+# @click.argument('project_name', type=str)
+# @click.argument('fasta_path', type=click.File())
+# @click.argument('outpath', type=click.Path(exists=False), default=os.getcwd())
+# @click.argument('background_paths', nargs=-1)
+# @click.option('--tm_opt', type=int, default=55)
+# @click.option('--gc_min', type=int, default=30)
+# @click.option('--gc_max', type=int, default=60)
+# @click.option('--primer_weights', nargs=6,  default=[1,1,1,1,1,1])
+# @click.option('--set_weights', nargs=3, default=[1,1,1])
+# @click.option('--na', type=float, default=50)
+# @click.option('--k', type=float, default=0)
+# @click.option('--tris', type=float, default=0)
+# @click.option('--mg', type=float, default=0)
+# @click.option('--dntps', type=float, default=0)
+# @click.option('--threads', type=int, default=2)
+# def score_existing_primer_set(project_name, fasta_path, outpath,
+#     background_paths, primer_weights, set_weights,
+#     tm_opt=55, gc_min=30, gc_max=60,
+#     na=50, k=0, tris=0, mg=0, dntps=0, threads=2):
+#     tm_params = {'Na': na, "K": k, "Tris": tris, 'Mg': mg, "dNTPs": dntps}
+#     gc_opt = {'min': gc_min, 'max': gc_max}
+#     score_existing_primers(
+#         project_name, fasta_path, tm_params, tm_opt, gc_opt, primer_weights,
+#         set_weights, background_paths, outpath, threads)
+
+
 
 @click.group()
 def gui():
