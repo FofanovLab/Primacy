@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from multiprocessing import Pool
 from functools import partial
-from utils import get_json_obj, write_json_obj
+from primacy.utils import get_json_obj, write_json_obj
 
 def min_max_scale_clipped(values, v_min, v_max):
     scaled = np.divide(np.subtract(values, v_min), np.subtract(v_max, v_min))
@@ -17,22 +17,26 @@ def get_distance(values, range_min, range_max):
     dist[below] = np.abs(np.subtract(range_min, values[below]))
     return dist
 
-def get_primer_dataframe(primer_obj):
+
+def convert_dict_to_dataframe(primer_obj):
     """
-    Return a dataframe from a primer_obj. Combines forward and
-    reverse primers into a data frame and expands dictionary
+    Combines forward and reverse primers from primer_obj into a data frame
+    """
+    return pd.DataFrame.from_dict(
+        {**primer_obj['forward'], **primer_obj['reverse']},
+        orient="index")
+
+
+def get_primer_dataframe(df):
+    """
+    Return a dataframe with expanded dictionary
     columns (e.g. homopolymer, specificity, and dimerization)
     into individual columns.
     """
-    # combine forward and reverse primers into single dataframe
-    df = pd.DataFrame.from_dict(
-        {**primer_obj['forward'], **primer_obj['reverse']},
-        orient="index")
     # expand dictionary columns into separate columns
     return pd.concat(
             [df.drop(
-                ['specificity', 'homopolymers', 'dimerization',
-                'seq', 'seq_id', 'start', 'length'], axis=1),
+                ['specificity', 'homopolymers', 'dimerization'], axis=1),
                 df['specificity'].apply(pd.Series),
                 df['homopolymers'].apply(pd.Series).rename(
                     columns={
@@ -56,7 +60,7 @@ def convert_to_distance(primer_df, tm_opt, gc_opt, gc_clamp_opt=2):
         primer_df.gc.values, gc_opt['min'], gc_opt['max'])
     primer_df['gc_clamp_dist'] = get_distance(
         primer_df.gc_clamp.values, gc_clamp_opt, gc_clamp_opt)
-    primer_df.drop(['tm', 'gc', 'gc_clamp'], axis=1, inplace=True)
+    # primer_df.drop(['tm', 'gc', 'gc_clamp'], axis=1, inplace=True)
     return primer_df
 
 
@@ -111,7 +115,7 @@ def get_scores(primer_df, weights):
     # add a percent rank where smaller percentile is better score
     primer_df['rank'] = primer_df.groupby('flank')['score'].rank(
         ascending=True, pct=True)
-    return primer_df[['flank', 'score', 'rank']]
+    return primer_df
 
 
 def add_scores_to_primer_obj_helper(row, primer_obj, flank):
@@ -150,7 +154,7 @@ def get_primer_score(primer_obj, tm_opt, gc_opt, weights):
         primer_obj,
         get_scores(
             convert_to_distance(
-                get_primer_dataframe(primer_obj),
+                get_primer_dataframe(convert_dict_to_dataframe(primer_obj)),
                 tm_opt, gc_opt), weights))
 
 
