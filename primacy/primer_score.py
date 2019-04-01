@@ -2,7 +2,11 @@ import pandas as pd
 import numpy as np
 from multiprocessing import Pool
 from functools import partial
-from primacy.utils import get_json_obj, write_json_obj
+from primacy.utils import (
+    get_json_obj, write_json_obj,
+    convert_dict_to_dataframe,
+    get_primer_dataframe)
+
 
 def min_max_scale_clipped(values, v_min, v_max):
     scaled = np.divide(np.subtract(values, v_min), np.subtract(v_max, v_min))
@@ -18,33 +22,6 @@ def get_distance(values, range_min, range_max):
     return dist
 
 
-def convert_dict_to_dataframe(primer_obj):
-    """
-    Combines forward and reverse primers from primer_obj into a data frame
-    """
-    return pd.DataFrame.from_dict(
-        {**primer_obj['forward'], **primer_obj['reverse']},
-        orient="index")
-
-
-def get_primer_dataframe(df):
-    """
-    Return a dataframe with expanded dictionary
-    columns (e.g. homopolymer, specificity, and dimerization)
-    into individual columns.
-    """
-    # expand dictionary columns into separate columns
-    return pd.concat(
-            [df.drop(
-                ['specificity', 'homopolymers', 'dimerization'], axis=1),
-                df['specificity'].apply(pd.Series),
-                df['homopolymers'].apply(pd.Series).rename(
-                    columns={
-                        c: "homo_{}".format(c) for c in ["percent", "run"]}),
-                df['dimerization'].apply(pd.Series).rename(
-                    columns={c: "dimer_{}".format(c) for c in [
-                        "percent", "run", "median", "hairpin"]})
-                ], axis=1)
 
 
 def convert_to_distance(primer_df, tm_opt, gc_opt, gc_clamp_opt=2):
