@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/FofanovLab/Primacy.svg?branch=master)](https://travis-ci.org/FofanovLab/Primacy)
+
+
 # Primacy
 Multiplex PCR Primer Optimization
 
