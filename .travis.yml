@@ -21,6 +21,6 @@ before_install:
 install:
   - conda install -q python=3.6 pip requests conda-build jinja2 anaconda-client 
   - travis_wait 20 conda build . -c bioconda
-  - conda install mtsv --use-local -c bioconda
+  - conda install primacy --use-local -c bioconda
 script:
   - primacy --help
