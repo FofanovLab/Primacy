@@ -94,7 +94,7 @@ def set_optimization(config, workdir, threads):
         primer_obj_paths, workdir,
         config_obj['set_optimization'],
         config_obj['primer_collection']['params'], threads)
-    write_json_obj(config_obj, "test.confg")
+    write_json_obj(config_obj, config)
     
 
 
