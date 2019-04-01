@@ -13,8 +13,6 @@ build:
   script: "{{ PYTHON }} -m pip install . -v"
 
 requirements:
-  build:
-    - python {{ python }}
   host:
     - python {{ python }}
     - pip
