@@ -14,12 +14,12 @@ build:
 
 requirements:
   build:
-    - python<=3.6
+    - python {{ python }}
   host:
-    - python<=3.6
+    - python {{ python }}
     - pip
   run:   # channels: bioconda
-    - python<=3.6
+    - python {{ python }}
     - click
     - biopython
     - numpy
