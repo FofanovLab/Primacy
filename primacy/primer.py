@@ -138,13 +138,7 @@ def dimerization_worker(primer_1, primer_2):
     median = np.median(run_lens) if run_lens else 0
     return (total, max_run, median, complementary)
 
-
-
-def get_primer_stats(df, tm_params):
-    df['primer_id'] = df[[
-        "seq_id", "start", "length", "flank"]].apply(
-            lambda row: "{0}_{1}_{2}_{3}".format(
-                row.seq_id, row.start, row.length, row.flank), axis=1)
+def get_existing_primer_stats(df, tm_params):
     df['ambiguous_seqs'] = df.sequence.apply(
         expand_ambiguous_dna
     )
@@ -161,13 +155,21 @@ def get_primer_stats(df, tm_params):
     df['dimerization'] = df[['sequence', 'reverse_complement']].apply(
         lambda row: dimerization(
             row.sequence, row.reverse_complement), axis=1)
-
     df["seq"] = df.sequence.astype(str)
-    df["flank"] = df.flank.apply(lambda x: 0 if x=="F" else 1)
     df.drop(
         ["ambiguous_seqs", "reverse_complement", "sequence"],
         axis=1, inplace=True)
     return df
+
+
+def get_primer_stats(df, tm_params):
+    df['primer_id'] = df[[
+        "seq_id", "start", "length", "flank"]].apply(
+            lambda row: "{0}_{1}_{2}_{3}".format(
+                row.seq_id, row.start, row.length, row.flank), axis=1)
+    df["flank"] = df.flank.apply(lambda x: 0 if x=="F" else 1)
+
+    return get_existing_primer_stats(df, tm_params)
 
 
 
