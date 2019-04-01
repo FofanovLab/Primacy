@@ -3,19 +3,19 @@ package:
   version: {{ environ.get('GIT_DESCRIBE_TAG', '') }}
 
 source:
-  git_url: https://github.com/FofanovLab/Primacy
-
+  #git_url: https://github.com/FofanovLab/Primacy
+  path: .
 build:
   number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
   entry_points:
     - primacy = primacy.main:gui
     - primacy_cli = primacy.main:main
-  script: "{{ PYTHON }} -m pip install . -v"
+  script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record=record.txt"
 
 requirements:
   host:
     - python {{ python }}
-    - pip
+    - setuptools
   run:   # channels: bioconda
     - python {{ python }}
     - click
