@@ -8,7 +8,7 @@ requirements = [
 
 setup(
     name='primacy',
-    version='1.0.0',
+    version='0.0.1',
     description="Multiplex PCR primer optimization",
     author="Tara Furstenau",
     author_email='tara.furstenau@nau.edu',
