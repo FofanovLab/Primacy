@@ -6,7 +6,11 @@ import os
 from primacy.sequence import Sequence
 from primacy.collection import get_primer_collection
 from primacy.primer_score import get_primer_scores_mp
-from primacy.utils import read_config, get_json_obj, write_json_obj
+from primacy.optimize import get_optimized_primer_sets
+from primacy.utils import (
+    read_config, get_json_obj, write_json_obj,
+    get_primer_obj_paths)
+
 # from primacy.score_existing_primers import score_existing_primers
 
 @click.group()
@@ -74,11 +78,30 @@ def primer_collection(config, threads, outpath=os.getcwd()):
 @click.option('--threads', '-t', default=2, type=click.IntRange(min=1))
 def primer_score(config, threads):
     config_obj = read_config(config)
-    primer_obj_paths = [
-        seq_obj['outfile'] for 
-            seq_obj in config_obj['sequences'].values()]
+    primer_obj_paths = get_primer_obj_paths(config_obj)
     get_primer_scores_mp(
         primer_obj_paths, config_obj['primer_scores']['params'], threads)
+
+
+@gui.command()
+@click.argument('config', type=click.Path(exists=True))
+@click.argument('workdir', type=click.Path(exists=False), default=os.getcwd())
+@click.option('--threads', '-t', default=2, type=click.IntRange(min=1))
+def set_optimization(config, workdir, threads):
+    config_obj = read_config(config)
+    primer_obj_paths = get_primer_obj_paths(config_obj)
+    config_obj['set_optimization'] = get_optimized_primer_sets(
+        primer_obj_paths, workdir,
+        config_obj['set_optimization'],
+        config_obj['primer_collection']['params'], threads)
+    write_json_obj(config_obj, "test.confg")
+    
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
