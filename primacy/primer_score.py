@@ -108,6 +108,10 @@ def add_scores_to_primer_obj(primer_obj, primer_df):
     primer_df[primer_df.flank == 1 ].apply(
         lambda row: add_scores_to_primer_obj_helper(
             row, primer_obj, "reverse"), axis=1 )
+    for name, df in primer_df.groupby("flank"):
+        sorted_array = list(df.sort_values("score").index)
+        primer_obj['sorted_{}'.format(
+            "forward" if not name else "reverse")] = sorted_array
     return primer_obj
 
 
@@ -126,7 +130,6 @@ def get_primer_score(primer_obj, tm_opt, gc_opt, weights):
     # all features should be minimized. scale values and apply
     # weights to get a score and rank column, then add scores and ranks to 
     # primer object
-    
     return add_scores_to_primer_obj(
         primer_obj,
         get_scores(
