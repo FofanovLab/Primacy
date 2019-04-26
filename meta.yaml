@@ -9,7 +9,7 @@ build:
   number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
   entry_points:
     - primacy = primacy.main:gui
-    - primacy_cli = primacy.main:main
+
   script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record=record.txt"
 
 requirements:
@@ -31,7 +31,7 @@ test:
     - primacy --help
     - primacy primer-collection --help
     - primacy primer-score --help
-  
+    - primacy set-optimization --help  
 
 about:
   home: https://github.com/FofanovLab/Primacy
